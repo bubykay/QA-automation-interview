@@ -1,103 +1,111 @@
+# QA Automation Interview
 
-# QA Automation Project with Cypress
+## Overview
+This repository contains the code for the Blusalt interview practical assessment. The assessment involves functional testing and defect management of the Mifos X loan management system, followed by writing automated web-based tests using Cypress with a page object model approach and BDD.
 
-This repository contains automated tests using Cypress for QA automation purposes. It includes test scenarios implemented with Cypress and Cucumber for behavior-driven development (BDD).
+## Project Structure
+```
+.
+├── README.md
+├── cypress
+│   ├── downloads
+│   ├── e2e
+│   │   ├── mifos
+│   │   │   ├── loan
+│   │   │   │   ├── accountCreation
+│   │   │   │   │   ├── loanAccountCreation.feature
+│   │   │   │   │   └── loanAccountCreation.cy.js
+│   │   │   │   ├── approval
+│   │   │   │   │   ├── approveLoan.feature
+│   │   │   │   │   └── approveLoan.cy.js
+│   │   │   │   ├── repayment
+│   │   │   │   │   ├── loanRepayment.feature
+│   │   │   │   │   └── loanRepayment.cy.js
+│   │   │   └── login
+│   │   │       ├── loginPage.feature
+│   │   │       └── loginPage.cy.js
+│   │   └── spec.cy.js
+│   ├── fixtures
+│   │   └── example.json
+│   └── support
+│       ├── commands.js
+│       ├── config
+│       │   ├── index.js
+│       │   └── utils.js
+│       ├── e2e.js
+│       ├── locators
+│       │   ├── loginLocators.js
+│       │   ├── loanLocators.js
+│       │   ├── approveLoanLocators.js
+│       └── pageObjects
+│           ├── LoginPage.js
+│           ├── LoanPage.js
+│           ├── ApproveLoanPage.js
+│           ├── LoanRepaymentPage.js
+├── cypress.config.js
+├── jsconfig.json
+├── package-lock.json
+└── package.json
+```
 
-## Table of Contents
-
-- [QA Automation Project with Cypress](#qa-automation-project-with-cypress)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Features](#features)
-  - [Installation](#installation)
-  - [Folder Structure](#folder-structure)
-  - [Running Tests](#running-tests)
-  - [Writing Tests](#writing-tests)
-  - [Contributing](#contributing)
-  - [License](#license)
-
-## Introduction
-
-This project is designed for QA automation testing using Cypress, a modern JavaScript testing framework for web applications. It utilizes Cucumber for writing test scenarios in a BDD style, making it easier to collaborate between stakeholders, QA, and developers.
-
-## Features
-
-- **Cypress:** Powerful end-to-end testing framework for modern web applications.
-- **Cucumber:** BDD framework for writing tests in easy-to-understand Gherkin syntax.
-- **Page Object Pattern:** Organized test structure with reusable page objects and locators.
-- **Custom Commands:** Extend Cypress with custom commands for reusability and readability.
-- **Reporting:** Generate detailed test reports for better visibility into test results.
+## Prerequisites
+- Node.js (https://nodejs.org/)
+- npm (comes with Node.js)
+- Git (https://git-scm.com/)
 
 ## Installation
 
-To run the Cypress tests locally, follow these steps:
-
-1. **Clone the repository:**
-
+1. Clone the repository:
    ```bash
-   git clone https://github.com/bubykay/QA-automation-interview.git
+   git clone git@github.com:bubykay/QA-automation-interview.git
+   ```
+
+2. Navigate to the project directory:
+   ```bash
    cd QA-automation-interview
    ```
 
-2. **Install dependencies:**
-
+3. Install the dependencies:
    ```bash
    npm install
    ```
 
-## Folder Structure
-
-The project structure is organized as follows:
-
-```
-QA-automation-interview/
-│
-├── cypress/
-│   ├── downloads/            # Downloads folder for test downloads (optional)
-│   ├── e2e/
-│   │   ├── mifos/
-│   │   │   ├── loginPage/               # Example folder for page-specific resources
-│   │   │   ├── loginPage.cy.js          # Cypress test file using JavaScript
-│   │   │   └── loginPage.feature       # Feature file using Cucumber syntax
-│   │   └── spec.cy.js                   # General Cypress test file
-│   ├── fixtures/             # Test fixtures (e.g., JSON files)
-│   │   └── example.json
-│   ├── support/
-│   │   ├── commands.js        # Custom Cypress commands
-│   │   ├── config/
-│   │   │   ├── index.js       # Configuration settings (e.g., URLs)
-│   │   │   └── utils.js       # Utility functions for tests
-│   │   ├── e2e.js             # Setup for end-to-end testing
-│   │   ├── locators/
-│   │   │   └── loginLocators.js  # Locators for elements on web pages
-│   │   └── pageObjects/
-│   │       └── LoginPage.js   # Page objects for different application pages
-├── cypress.config.js          # Cypress configuration file
-├── jsconfig.json              # JavaScript configuration file
-├── package-lock.json          # Dependency lock file
-└── package.json               # Project dependencies and scripts
-```
-
-## Running Tests
+## Running the Tests
 
 To run the Cypress tests, use the following command:
-
 ```bash
-npm test
+npx cypress open
 ```
+This will open the Cypress Test Runner where you can run the tests.
 
-This command executes Cypress tests in headless mode and generates reports.
+## Folder Structure Description
 
-## Writing Tests
+- **cypress**
+  - **downloads**: Directory for downloaded files during tests.
+  - **e2e**
+    - **mifos**
+      - **loan**
+        - **accountCreation**: Contains tests and feature files for loan account creation.
+        - **approval**: Contains tests and feature files for loan approval.
+        - **repayment**: Contains tests and feature files for loan repayment.
+      - **login**: Contains tests and feature files for the login functionality.
+  - **fixtures**: Contains test data files.
+  - **support**
+    - **commands.js**: Custom commands for Cypress.
+    - **config**: Configuration files and utility functions.
+    - **locators**: Contains locator files for different page elements.
+    - **pageObjects**: Page object model classes for different pages.
+  
+- **cypress.config.js**: Cypress configuration file.
+- **jsconfig.json**: Configuration file for JavaScript.
+- **package.json**: Project metadata and dependencies.
+- **package-lock.json**: Lock file for npm dependencies.
 
-- **Writing Tests:** Write your Cypress tests in `.feature` files located in `cypress/integration` directory.
-- **Step Definitions:** Implement step definitions in `cypress/support/step_definitions` using Cypress Cucumber preprocessor.
-- **Page Objects:** Maintain page objects in `cypress/support/page_objects` for different application pages.
+## Repository Links
 
-## Contributing
+- **Repository**: [GitHub](https://github.com/bubykay/QA-automation-interview)
+- **Issues**: [GitHub Issues](https://github.com/bubykay/QA-automation-interview/issues)
 
-Contributions are welcome! If you find any issues or want to enhance the tests, feel free to open a pull request.
+## Author
 
-## License
-
-This project is licensed under the ISC License. See the [LICENSE](LICENSE) file for details.
+- **Kayode Adetayo**
