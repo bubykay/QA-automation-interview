@@ -12,6 +12,14 @@ module.exports = defineConfig({
       "cypress/e2e/mifos/loan/approval/*.feature",
       "cypress/e2e/mifos/loan/repayment/*.feature",
     ],
-    reporter: "",
+    reporter: "cypress-mochawesome-reporter",
+    reporterOptions: {
+      reportDir: "cypress/reports",
+      overwrite: true,
+      html: true,
+      json: true,
+      timestamp: "yyyy-mm-dd-HH-MM-ss",
+      reportPageTitle: "Test Report",
+    },
   },
 });

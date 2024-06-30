@@ -109,3 +109,5 @@ This will open the Cypress Test Runner where you can run the tests.
 ## Author
 
 - **Kayode Adetayo**
+- ***Notes***
+- incosistence with /fineract-provider/api/v1/authentication

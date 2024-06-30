@@ -4,7 +4,8 @@
   "description": "Repository for Blusalt interview Practical Assessment, practical assessment stage",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress open"
+    "test": "cypress run",
+    "generate-report": "npx mochawesome-merge cypress/reports/.jsons/*.json > cypress/reports/merged-report.json && npx mochawesome-report-generator cypress/reports/merged-report.json"
   },
   "repository": {
     "type": "git",
