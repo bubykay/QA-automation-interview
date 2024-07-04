@@ -106,8 +106,53 @@ This will open the Cypress Test Runner where you can run the tests.
 - **Repository**: [GitHub](https://github.com/bubykay/QA-automation-interview)
 - **Issues**: [GitHub Issues](https://github.com/bubykay/QA-automation-interview/issues)
 
+## Known Issues and Blockers
+
+### Blocker: Google Chrome Password Breach Warning
+
+#### Description
+When attempting to log in or perform automated testing using Google Chrome, you may encounter the following error message:
+
+This is a security feature in Google Chrome designed to protect users by alerting them when they use passwords that have been exposed in known data breaches. While this feature is beneficial for security, it can interfere with automated testing and other use cases.
+
+#### Solutions
+
+**1. Disable Password Manager in Chrome Settings:**
+
+You can disable the password manager feature in Chrome to prevent this warning from appearing during manual testing.
+
+1. Open Chrome and navigate to `chrome://settings/`.
+2. Scroll down and click on `Advanced`.
+3. Under the `Passwords and forms` section, click on `Manage passwords`.
+4. Toggle off `Offer to save passwords`.
+
+### Blocker: Demo.mifos.io Loading Endlessly
+
+#### Description
+When attempting to access the Mifos X demo application at [https://demo.mifos.io/](https://demo.mifos.io/), the site loads endlessly, preventing tests from running and impacting development work.
+
+#### Solutions
+
+1. **Check Network Connectivity:**
+
+   Ensure that your internet connection is stable. Network issues can sometimes cause the site to load indefinitely.
+
+2. **Clear Browser Cache:**
+
+   Clearing your browser's cache can help resolve issues caused by outdated or corrupted files.
+
+   **For Chrome:**
+   - Click on the three dots in the upper-right corner.
+   - Go to `More tools` > `Clear browsing data`.
+   - Select `Cached images and files` and `Cookies and other site data`.
+   - Click `Clear data`.
+
+3. **Rerun the test:**
+
+   Re-running the test  with `npx cypress open` mostly work.
+
+
 ## Author
 
 - **Kayode Adetayo**
 - ***Notes***
-- incosistence with /fineract-provider/api/v1/authentication

@@ -1,7 +1,7 @@
 const baseUrl = "https://demo.mifos.io/";
 
 export const urls = {
-  loginPage: baseUrl,
+  loginPage: baseUrl + "",
   viewClient: (id) => `${baseUrl}#/viewclient/${id}`,
 };
 
